@@ -20,12 +20,20 @@
       },
       {
         "network": "GitHub",
-        "username": "academicpages",
-        "url": "https://github.com/academicpages"
+        "username": "forreyg",
+        "url": "https://github.com/forreyg"
       }
     ]
   },
-  "work": [],
+  "work": [{
+      "institution": "University of Connecticut",
+      "area": "Post-bacc",
+      "studyType": "Working within Dr. Aleksandra Kuznetsova's research group.",
+      "startDate": "September 2025",
+      "endDate": "Present",
+      "gpa": null,
+      "courses": []
+    },],
   "education": [
     {
       "institution": "University of Connecticut",
@@ -54,9 +62,9 @@
     {
       "name": "NASA CT Space Grant Annual Grants Expo",
       "event": "",
-      "date": "2012-03-01",
+      "date": "2024-11-01",
       "location": "New England Air Museum, CT, USA",
-      "description": ""
+      "description": "Presentation about summer funded project."
     },
 
   ],
