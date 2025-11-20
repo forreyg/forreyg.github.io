@@ -44,46 +44,46 @@
 
 
 /* ==========================================
-   FULL-PAGE OVERLAY FOR BACKGROUND
+   Custom background & transparency
+   ========================================== */
 
-/* Base JWST background on the body */
-/* Background image stays fixed */
+/* Base background image on html/body */
 html,
 body {
+  margin: 0;
   min-height: 100%;
   background: url("{{ '/images/GOODS-S.jpg' | relative_url }}")
               no-repeat center center fixed !important;
   background-size: cover !important;
 }
 
-/* Make the main content cards transparent so the background shows through */
+/* Make main layout elements transparent so the image shows through */
 .masthead,
 .masthead__inner-wrap,
 .page,
 .page__inner-wrap,
 .page__content,
-.sidebar {
+.sidebar,
+.initial-content,
+.wrapper {
   background: transparent !important;
+  background-color: transparent !important;
 }
-/* Remove solid bar at top and make nav transparent */
-[data-theme="light"] .masthead,
-[data-theme="dark"] .masthead,
-[data-theme="light"] .masthead__inner-wrap,
-[data-theme="dark"] .masthead__inner-wrap,
+
+/* Remove solid bar at top / nav */
+header,
+.site-header,
 .masthead,
-.masthead__inner-wrap {
 .masthead__inner-wrap,
-.masthead::before,
-.masthead__inner-wrap::before,
 .greedy-nav,
-.greedy-nav::before,
 .site-nav {
   background: transparent !important;
+  background-color: transparent !important;
   box-shadow: none !important;
   border: 0 !important;
 }
 
-/* Make footer transparent so the JWST background shows through */
+/* Make footer transparent so the background shows through */
 .page__footer,
 .page__footer::before,
 .site-footer,
@@ -93,3 +93,4 @@ footer {
   box-shadow: none !important;
   border-top: none !important;
 }
+
