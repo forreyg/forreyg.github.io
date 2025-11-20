@@ -45,10 +45,10 @@
 
 /* ==========================================
    FULL-PAGE OVERLAY FOR BACKGROUND
-   ========================================== */
 
 /* Base JWST background on the body */
 /* Background image stays fixed */
+html,
 body {
   background: url("{{ '/images/JGOODS-S.jpg' | relative_url }}")
               center center / cover no-repeat fixed !important;
