@@ -178,19 +178,19 @@
   <div class="cv-section">
     <h2>Presentations</h2>
     <ul class="cv-list">
-      {% for talk in cv.presentations %}
+      {% for research in cv.presentations %}
       <li class="cv-item">
         <div class="cv-item-header">
-          <div class="cv-item-title">{{ talk.name }}</div>
-          <div class="cv-item-date">{{ talk.date | slice: 0, 4 }}</div>
+          <div class="cv-item-title">{{ research.name }}</div>
+          <div class="cv-item-date">{{ research.date | slice: 0, 4 }}</div>
         </div>
         <div class="cv-item-content">
-          <div class="cv-item-subtitle">{{ talk.event }}</div>
-          {% if talk.location %}
-          <div class="cv-item-detail">{{ talk.location }}</div>
+          <div class="cv-item-subtitle">{{ research.event }}</div>
+          {% if research.location %}
+          <div class="cv-item-detail">{{ research.location }}</div>
           {% endif %}
-          {% if talk.description %}
-          <div class="cv-item-detail">{{ talk.description }}</div>
+          {% if research.description %}
+          <div class="cv-item-detail">{{ research.description }}</div>
           {% endif %}
         </div>
       </li>
