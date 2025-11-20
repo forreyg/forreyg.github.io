@@ -64,7 +64,7 @@ def html_escape(text):
 
 loc_dict = {}
 
-for row, item in talks.iterrows():
+for row, item in research.iterrows():
     
     md_filename = str(item.date) + "-" + item.url_slug + ".md"
     html_filename = str(item.date) + "-" + item.url_slug 
@@ -76,7 +76,7 @@ for row, item in talks.iterrows():
     if len(str(item.type)) > 3:
         md += 'type: "' + item.type + '"\n'
     else:
-        md += 'type: "Talk"\n'
+        md += 'type: "Research"\n'
     
     md += "permalink: /research/" + html_filename + "\n"
     
@@ -92,8 +92,8 @@ for row, item in talks.iterrows():
     md += "---\n"
     
     
-    if len(str(item.talk_url)) > 3:
-        md += "\n[More information here](" + item.talk_url + ")\n" 
+    if len(str(item.research_url)) > 3:
+        md += "\n[More information here](" + item.research_url + ")\n" 
         
     
     if len(str(item.description)) > 3:
