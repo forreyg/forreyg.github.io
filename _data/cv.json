@@ -30,16 +30,18 @@
       }
     ]
   },
-  "work": [{
-      "institution": "University of Connecticut",
-      "area": "Post-bacc",
-      "workType": "Working within Dr. Aleksandra Kuznetsova's research group.",
-      "startDate": "2025-9",
-      "endDate": "Present",
-      "gpa": null,
-      "courses": []
-    },
-  ],
+"work": [
+  {
+    "name": "University of Connecticut",
+    "position": "Post-baccalaureate Researcher",
+    "url": "https://uconn.edu",
+    "startDate": "2025-09",
+    "endDate": "Present",
+    "summary": "Working within Dr. Aleksandra Kuznetsova's research group.",
+    "highlights": []
+  }
+],
+
   "education": [
     {
       "institution": "University of Connecticut",
