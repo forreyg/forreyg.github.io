@@ -41,17 +41,21 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
-/* Custom site background */
-/* Custom site background */
-html, body {
-  background: url("{{ '/assets/images/JWST_background_image.png' | relative_url }}") 
+/* === Custom JWST background for entire site === */
+html,
+body {
+  min-height: 100%;
+  background: url("{{ '/images/JWST_background_image.png' | relative_url }}")
               no-repeat center center fixed !important;
   background-size: cover !important;
 }
+
+/* Make the main content cards transparent so the background shows through */
+.masthead,
+.masthead__inner-wrap,
 .page,
 .page__inner-wrap,
-.page__content {
+.page__content,
+.sidebar {
   background: transparent !important;
-}
-
 }
