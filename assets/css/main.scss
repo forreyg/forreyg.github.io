@@ -42,7 +42,16 @@
     "vendor/font-awesome/brands"
 ;
 /* Custom site background */
-body {
-  background: url("/assets/images/JWST_background_image.png") no-repeat center center fixed !important;
+/* Custom site background */
+html, body {
+  background: url("{{ '/assets/images/JWST_background_image.png' | relative_url }}") 
+              no-repeat center center fixed !important;
   background-size: cover !important;
+}
+.page,
+.page__inner-wrap,
+.page__content {
+  background: transparent !important;
+}
+
 }
