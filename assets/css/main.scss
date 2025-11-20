@@ -41,14 +41,7 @@
     "vendor/font-awesome/solid",
     "vendor/font-awesome/brands"
 ;
-/* === Custom JWST background for entire site === */
-html,
-body {
-  min-height: 100%;
-  background: url("{{ '/images/GOODS-S.jpg' | relative_url }}")
-              no-repeat center center fixed !important;
-  background-size: cover !important;
-}
+
 
 /* ==========================================
    FULL-PAGE OVERLAY FOR BACKGROUND
@@ -57,7 +50,7 @@ body {
 /* Base JWST background on the body */
 /* Background image stays fixed */
 body {
-  background: url("{{ '/images/JWST_background_image.png' | relative_url }}")
+  background: url("{{ '/images/JGOODS-S.jpg' | relative_url }}")
               center center / cover no-repeat fixed !important;
 }
 
