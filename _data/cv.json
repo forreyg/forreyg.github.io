@@ -8,9 +8,9 @@
     "location": {
       "address": "",
       "postalCode": "",
-      "city": "Storrs, CT",
+      "city": "Storrs",
       "countryCode": "US",
-      "region": ""
+      "region": "CT"
     },
     "profiles": [
       {
@@ -33,7 +33,8 @@
       "endDate": "Present",
       "gpa": null,
       "courses": []
-    },],
+    },
+  ],
   "education": [
     {
       "institution": "University of Connecticut",
