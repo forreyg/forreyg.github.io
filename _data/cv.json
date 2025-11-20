@@ -51,8 +51,8 @@
       "courses": []
     },
   ],
-  "skills": ["Data Analysis, Python, MESA, HPC (high performance computing), Scientic Writing"],
-  "languages": ["python, FORTRAN, Julia"],
+  "skills": ["Data Analysis", "Python", "MESA", "HPC (high performance computing)", "Scientific Writing"],
+  "languages": ["python", "FORTRAN", "Julia"],
   "interests": "galactic evolution, stellar evolution, accretion disks, star formation",
   "publications": [
     {
