@@ -49,39 +49,61 @@ body {
               no-repeat center center fixed !important;
   background-size: cover !important;
 }
+/* === Theme toggle styling === */
 
-/* Make the main content cards transparent so the background shows through */
-.masthead,
-.masthead__inner-wrap,
-.page,
-.page__inner-wrap,
-.page__content,
-.sidebar {
-  background: transparent !important;
+/* Always make the icon bright and readable */
+#theme-icon {
+  color: #ffffff !important;
+  text-shadow: 0 0 4px rgba(0, 0, 0, 0.8);
 }
-/* Remove solid bar at top and make nav transparent */
-[data-theme="light"] .masthead,
-[data-theme="dark"] .masthead,
-[data-theme="light"] .masthead__inner-wrap,
-[data-theme="dark"] .masthead__inner-wrap,
+
+/* Optionally give the button a soft dark pill behind it */
+#theme-toggle {
+  background: rgba(0, 0, 0, 0.4) !important;
+  border-radius: 999px !important;
+  border: none !important;
+}
+
+/* Fine-tune per theme if you want */
+html[data-theme="light"] #theme-icon.fa-sun {
+  color: #ffd15c !important;   /* warm sun color */
+}
+
+html[data-theme="dark"] #theme-icon.fa-moon {
+  color: #ffffff !important;   /* bright moon */
+}
+
+/* Remove the leftover solid background bar at the top */
+
+/* Make sure there’s no extra gap at the top */
+html,
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* Override the global background color so headers don't pull in the old color */
+:root {
+  --global-bg-color: transparent;
+}
+
+/* Also override it for dark mode if the theme defines a dark variant */
+html[data-theme="dark"] {
+  --global-bg-color: transparent;
+}
+
+/* Common AcademicPages / Minimal Mistakes header/nav elements */
+header,
+.site-header,
+.page-header,
 .masthead,
 .masthead__inner-wrap,
-.masthead::before,
-.masthead__inner-wrap::before,
 .greedy-nav,
-.greedy-nav::before,
-.site-nav {
+.site-nav,
+.page__hero,
+.page__hero::before {
   background: transparent !important;
+  background-color: transparent !important;
   box-shadow: none !important;
   border: 0 !important;
-}
-
-/* Make light/dark toggle visible on top of the image */
-.theme-toggle,
-.theme-toggle button,
-.theme-toggle svg,
-.theme-toggle i {
-  color: #ffffff !important;
-  fill: #ffffff !important;
-  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.8));
 }
