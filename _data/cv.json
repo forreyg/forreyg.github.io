@@ -53,7 +53,7 @@
   ],
   "skills": ["Data Analysis, Python, MESA, HPC (high performance computing), Scientic Writing"],
   "languages": ["python, FORTRAN, Julia"],
-  "interests": ["galactic evolution, stellar evolution, accretion disks, star formation"],
+  "interests": "galactic evolution, stellar evolution, accretion disks, star formation",
   "publications": [
     {
       "name": "Paper Title Number 1",
