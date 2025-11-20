@@ -277,15 +277,15 @@ def parse_publications(pub_dir):
     
     return publications
 
-def parse_talks(talks_dir):
-    """Parse talks from the _talks directory."""
-    talks = []
+def parse_research(research_dir):
+    """Parse research from the _research directory."""
+    research = []
     
-    if not os.path.exists(talks_dir):
-        return talks
+    if not os.path.exists(research_dir):
+        return research
     
-    for talk_file in sorted(glob.glob(os.path.join(talks_dir, "*.md"))):
-        with open(talk_file, 'r', encoding='utf-8') as file:
+    for research_file in sorted(glob.glob(os.path.join(research_dir, "*.md"))):
+        with open(research_file, 'r', encoding='utf-8') as file:
             content = file.read()
         
         # Extract front matter
@@ -294,7 +294,7 @@ def parse_talks(talks_dir):
             front_matter = yaml.safe_load(front_matter_match.group(1))
             
             # Extract talk details
-            talk_entry = {
+            research_entry = {
                 "name": front_matter.get('title', ''),
                 "event": front_matter.get('venue', ''),
                 "date": front_matter.get('date', ''),
@@ -302,9 +302,9 @@ def parse_talks(talks_dir):
                 "description": front_matter.get('excerpt', '')
             }
             
-            talks.append(talk_entry)
+            research.append(research_entry)
     
-    return talks
+    return research
 
 def parse_teaching(teaching_dir):
     """Parse teaching from the _teaching directory."""
@@ -390,7 +390,7 @@ def create_cv_json(md_file, config_file, repo_root, output_file):
     cv_json["publications"] = parse_publications(os.path.join(repo_root, "_publications"))
     
     # Add talks
-    cv_json["presentations"] = parse_talks(os.path.join(repo_root, "_talks"))
+    cv_json["presentations"] = parse_research(os.path.join(repo_root, "_research"))
     
     # Add teaching
     cv_json["teaching"] = parse_teaching(os.path.join(repo_root, "_teaching"))
