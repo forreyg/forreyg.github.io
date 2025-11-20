@@ -63,11 +63,8 @@ body {
 .page,
 .page__inner-wrap,
 .page__content,
-.sidebar,
-.initial-content,
-.wrapper {
+.sidebar {
   background: transparent !important;
-  background-color: transparent !important;
 }
 
 /* Remove solid bar at top and make nav transparent */
@@ -86,7 +83,7 @@ body {
   box-shadow: none !important;
   border: 0 !important;
 }
-}
+
 
 /* Make footer transparent so the background shows through */
 .page__footer,
