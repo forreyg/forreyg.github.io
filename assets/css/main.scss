@@ -133,3 +133,7 @@ footer {
   background: transparent !important;
   background-color: transparent !important;
 }
+/* Prevent content from sliding under the transparent header */
+body {
+  padding-top: var(--masthead-height, 70px);
+}
