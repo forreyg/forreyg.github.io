@@ -50,7 +50,6 @@
 /* Base background image on html/body */
 html,
 body {
-  margin: 0;
   min-height: 100%;
   background: url("{{ '/images/GOODS-S.jpg' | relative_url }}")
               no-repeat center center fixed !important;
@@ -83,7 +82,15 @@ body {
   box-shadow: none !important;
   border: 0 !important;
 }
-
+/* Make light/dark toggle visible on top of the image */
+.theme-toggle,
+.theme-toggle button,
+.theme-toggle svg,
+.theme-toggle i {
+  color: #ffffff !important;
+  fill: #ffffff !important;
+  filter: drop-shadow(0 0 3px rgba(0, 0, 0, 0.8));
+}
 
 /* Make footer transparent so the background shows through */
 .page__footer,
