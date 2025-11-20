@@ -1,5 +1,6 @@
 ---
-title: "Post-Bacc Research"
+"Post-Bacc Research"
+=====
 collection: research
 type: "Research"
 permalink: /research/postbacc
