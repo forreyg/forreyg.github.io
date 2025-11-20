@@ -50,41 +50,38 @@ body {
   background-size: cover !important;
 }
 
-html::before {
+/* ==========================================
+   FULL-PAGE OVERLAY FOR BACKGROUND
+   ========================================== */
+
+/* Base JWST background on the body */
+body {
+  background: url("{{ '/images/JWST_background_image.png' | relative_url }}")
+              no-repeat center center fixed !important;
+  background-size: cover !important;
+  position: relative;
+}
+
+/* DEFAULT (light mode) overlay */
+body::before {
   content: "";
-  position: fixed;
+  position: fixed;     /* covers full viewport */
   top: 0;
   left: 0;
-  width: 100%;
-  height: 100%;
-  pointer-events: none; /* don't block clicks */
-  z-index: -1;          /* behind global layout */
-  background: rgba(255, 255, 255, 0.4); /* default = light mode overlay */
-  backdrop-filter: brightness(1) !important;  
+  width: 100vw;
+  height: 100vh;
+  pointer-events: none;
+  z-index: -1;
+  background: rgba(255, 255, 255, 0.35); /* lighten image for black text */
+  backdrop-filter: brightness(1.1);
 }
 
-/* DARK MODE — apply a darker tint */
-html[data-theme="dark"]::before {
-  background: rgba(0, 0, 0, 0.45);
-  backdrop-filter: brightness(0.7) !important;
+/* DARK MODE overlay */
+html[data-theme="dark"] body::before {
+  background: rgba(0, 0, 0, 0.45);  /* dark tint */
+  backdrop-filter: brightness(0.7);
 }
 
-/* Make sure there’s no extra gap at the top */
-html,
-body {
-  margin: 0;
-  padding: 0;
-}
-
-/* Override the global background color so headers don't pull in the old color */
-:root {
-  --global-bg-color: transparent;
-}
-
-/* Also override it for dark mode if the theme defines a dark variant */
-html[data-theme="dark"] {
-  --global-bg-color: transparent;
-}
 
 /* Common AcademicPages / Minimal Mistakes header/nav elements */
 header,
