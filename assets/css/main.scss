@@ -70,17 +70,22 @@ body {
   background-color: transparent !important;
 }
 
-/* Remove solid bar at top / nav */
-header,
-.site-header,
+/* Remove solid bar at top and make nav transparent */
+[data-theme="light"] .masthead,
+[data-theme="dark"] .masthead,
+[data-theme="light"] .masthead__inner-wrap,
+[data-theme="dark"] .masthead__inner-wrap,
 .masthead,
 .masthead__inner-wrap,
+.masthead::before,
+.masthead__inner-wrap::before,
 .greedy-nav,
+.greedy-nav::before,
 .site-nav {
   background: transparent !important;
-  background-color: transparent !important;
   box-shadow: none !important;
   border: 0 !important;
+}
 }
 
 /* Make footer transparent so the background shows through */
