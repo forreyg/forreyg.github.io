@@ -137,3 +137,30 @@ footer {
 body {
   padding-top: var(--masthead-height, 70px);
 }
+/* Header should hide underlying text while still letting background image glow through */
+
+.masthead,
+.masthead__inner-wrap,
+.greedy-nav,
+.site-nav {
+  background: rgba(0, 0, 0, 0.55) !important;  /* adjust opacity */
+  background-color: rgba(0, 0, 0, 0.55) !important;
+  box-shadow: none !important;
+  border: 0 !important;
+}
+
+/* Respect light/dark theme but keep same effect */
+[data-theme="light"] .masthead,
+[data-theme="light"] .masthead__inner-wrap,
+[data-theme="dark"] .masthead,
+[data-theme="dark"] .masthead__inner-wrap {
+  background: rgba(0, 0, 0, 0.55) !important;
+  background-color: rgba(0, 0, 0, 0.55) !important;
+}
+
+/* Optional: soft blur for a “glass” effect */
+.masthead,
+.masthead__inner-wrap {
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+}
