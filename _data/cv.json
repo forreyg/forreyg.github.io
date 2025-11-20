@@ -34,7 +34,7 @@
       "institution": "University of Connecticut",
       "area": "Post-bacc",
       "workType": "Working within Dr. Aleksandra Kuznetsova's research group.",
-      "startDate": "September 2025",
+      "startDate": "2025-9",
       "endDate": "Present",
       "gpa": null,
       "courses": []
@@ -51,9 +51,44 @@
       "courses": []
     },
   ],
-  "skills": ["Data Analysis", "Python", "MESA", "HPC (high performance computing)", "Scientific Writing"],
-  "languages": ["python", "FORTRAN", "Julia"],
-  "interests": "galactic evolution, stellar evolution, accretion disks, star formation",
+
+  "skills": [
+    {
+      "name": "Programming & Scientific Computing",
+      "level": "",
+      "keywords": [
+        "Data analysis",
+        "Python",
+        "MESA",
+        "HPC (high performance computing)",
+        "Scientific writing"
+      ]
+    }
+  ],
+
+  "languages": [
+    {
+      "language": "Python",
+    },
+    {
+      "language": "FORTRAN",
+    },
+    {
+      "language": "Julia",
+    }
+  ],
+
+  "interests": [
+    {
+      "name": "Astrophysics",
+      "keywords": [
+        "Galactic evolution",
+        "Stellar evolution",
+        "Accretion disks",
+        "Star formation"
+      ]
+    }
+  ],
   "publications": [
     {
       "name": "Paper Title Number 1",
