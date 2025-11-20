@@ -28,7 +28,7 @@
   "work": [{
       "institution": "University of Connecticut",
       "area": "Post-bacc",
-      "studyType": "Working within Dr. Aleksandra Kuznetsova's research group.",
+      "workType": "Working within Dr. Aleksandra Kuznetsova's research group.",
       "startDate": "September 2025",
       "endDate": "Present",
       "gpa": null,
