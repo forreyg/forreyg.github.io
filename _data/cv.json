@@ -22,6 +22,11 @@
         "network": "GitHub",
         "username": "forreyg",
         "url": "https://github.com/forreyg"
+      },
+      {
+        "network": "LinkedIN",
+        "username": "Grace Forrey",
+        "url": "www.linkedin.com/in/grace-forrey-206125241"
       }
     ]
   },
@@ -46,10 +51,9 @@
       "courses": []
     },
   ],
-  "skills": [],
-  "languages": [],
+  "skills": ["Data Analysis, Python, MESA, HPC (high performance computing), Scientic Writing"],
+  "languages": ["python, FORTRAN, Julia"],
   "interests": ["galactic evolution, stellar evolution, accretion disks, star formation"],
-  "references": [],
   "publications": [
     {
       "name": "Paper Title Number 1",
