@@ -30,14 +30,23 @@
       }
     ]
   },
-"work": [
+"experience": [
   {
     "name": "University of Connecticut",
-    "position": "Post-baccalaureate Researcher",
+    "position": "Post-baccalaureate Researcher at the University of Connecticut",
     "url": "https://uconn.edu",
-    "startDate": "2025-09",
+    "startDate": "September 2025",
     "endDate": "Present",
-    "summary": "Working within Dr. Aleksandra Kuznetsova's research group.",
+    "summary": "Working within Dr. Aleksandra Kuznetsova's research group on modeling pre-main sequence stars using MESA",
+    "highlights": []
+  },
+    {
+    "name": "University of Connecticut",
+    "position": "NASA Connecticut Space Grant: Balmer Decrements at 1 < z < 3 ",
+    "url": "https://uconn.edu",
+    "startDate": "June 2024",
+    "endDate": "August 2024",
+    "summary": "Summer research grant working for 10 weeks with advisors Dr. Raymond Simons and Dr. Jonathan Trump",
     "highlights": []
   }
 ],
