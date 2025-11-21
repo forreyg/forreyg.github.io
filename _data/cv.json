@@ -54,7 +54,7 @@
   "education": [
     {
       "institution": "University of Connecticut",
-      "area": "B.S. in Physics",
+      "area": "B.S. in Physics minor in Astrophysics",
       "studyType": "Undergraduate",
       "startDate": "August 2021",
       "endDate": "May 2025",
@@ -112,10 +112,10 @@
   "presentations": [
     {
       "name": "NASA CT Space Grant Annual Grants Expo",
-      "event": "",
+      "event": "NASA CT Space Grant Annual Grants Expo",
       "date": "2024-11-01",
       "location": "New England Air Museum, CT, USA",
-      "description": "Presentation about summer funded project."
+      "description": "Poster presentation about summer funded project."
     },
 
   ],
