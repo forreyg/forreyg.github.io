@@ -26,7 +26,7 @@
       {
         "network": "LinkedIN",
         "username": "Grace Forrey",
-        "url": "www.linkedin.com/in/grace-forrey-206125241"
+        "url": "https://linkedin.com/in/grace-forrey-206125241"
       }
     ]
   },
@@ -91,12 +91,27 @@
 
   "interests": [
     {
-      "name": "Astrophysics",
+      "name": "Galactic Evolution",
       "keywords": [
-        "Galactic evolution",
-        "Stellar evolution",
-        "Accretion disks",
-        "Star formation"
+        "Galactic Structure",
+        "Star Formation",
+        "Metallicity",
+        "High Redshift"
+      ]
+    },
+    {
+      "name": "Stellar Evolution",
+      "keywords": [
+        "Pre-main Sequence",
+        "Accretion Disks",
+        "Stellar Modeling",
+      ]
+    },
+    {
+      "name": "Black Holes",
+      "keywords": [
+        "Galaxy-Black hole Coevolution",
+        "AGN"
       ]
     }
   ],
