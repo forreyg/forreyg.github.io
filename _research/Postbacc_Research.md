@@ -4,8 +4,8 @@ collection: research
 type: "Research"
 permalink: /research/postbacc
 venue: 'University of Connecticut'
-startDate: "September 2025"
-endDate: "Present"
+startDate: 2025-09
+endDate: present
 location: "Storrs, CT, USA"
 ---
 
