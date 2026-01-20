@@ -49,18 +49,6 @@ for _, item in publications.iterrows():
     if len(citation) > 5:
         md += "citation: >-\n" + yaml_block(citation) + "\n"
 
-    md += "---\n\n"
-
-    # ✅ FIX 1: NO "Download paper" link/button in the body (your layout/title will link to arXiv)
-    # (intentionally not adding any <a href='...'>Download paper here</a>)
-
-    # Optional: include the excerpt in the page body too (helps if your theme doesn’t render math in YAML excerpt)
-    if len(excerpt) > 5:
-        md += "<p>\n" + excerpt + "\n</p>\n\n"
-
-    # Optional: keep the recommended citation line (no download link)
-    if len(citation) > 5:
-        md += "Recommended citation: " + citation + "\n"
 
     with open(os.path.join("..", "_publications", md_filename), "w", encoding="utf-8") as f:
         f.write(md)
