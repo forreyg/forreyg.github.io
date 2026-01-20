@@ -1,109 +1,66 @@
-
 # coding: utf-8
 
-# # Publications markdown generator for academicpages
-# 
-# Takes a TSV of publications with metadata and converts them for use with [academicpages.github.io](academicpages.github.io). This is an interactive Jupyter notebook, with the core python code in publications.py. Run either from the `markdown_generator` folder after replacing `publications.tsv` with one that fits your format.
-# 
-# TODO: Make this work with BibTex and other databases of citations, rather than Stuart's non-standard TSV format and citation style.
-# 
-
-# ## Data format
-# 
-# The TSV needs to have the following columns: pub_date, title, venue, excerpt, citation, site_url, and paper_url, with a header at the top. 
-# 
-# - `excerpt` and `paper_url` can be blank, but the others must have values. 
-# - `pub_date` must be formatted as YYYY-MM-DD.
-# - `url_slug` will be the descriptive part of the .md file and the permalink URL for the page about the paper. The .md file will be `YYYY-MM-DD-[url_slug].md` and the permalink will be `https://[yourdomain]/publications/YYYY-MM-DD-[url_slug]`
-
-
-# ## Import pandas
-# 
-# We are using the very handy pandas library for dataframes.
-
-# In[2]:
-
+import os
 import pandas as pd
 
-
-# ## Import TSV
-# 
-# Pandas makes this easy with the read_csv function. We are using a TSV, so we specify the separator as a tab, or `\t`.
-# 
-# I found it important to put this data in a tab-separated values format, because there are a lot of commas in this kind of data and comma-separated values can get messed up. However, you can modify the import statement, as pandas also has read_excel(), read_json(), and others.
-
-# In[3]:
-
 publications = pd.read_csv("publications.tsv", sep="\t", header=0)
-publications
 
+def yaml_block(s: str) -> str:
+    """
+    Safe YAML folded block scalar.
+    Keeps LaTeX ($...$) intact and avoids quote-escaping hell.
+    """
+    if s is None:
+        return ""
+    s = str(s).replace("\r\n", "\n").replace("\r", "\n").strip()
+    if not s:
+        return ""
+    # indent every line by 2 spaces for YAML block scalar
+    return "\n".join("  " + line for line in s.split("\n"))
 
-# ## Escape special characters
-# 
-# YAML is very picky about how it takes a valid string, so we are replacing single and double quotes (and ampersands) with their HTML encoded equivilents. This makes them look not so readable in raw format, but they are parsed and rendered nicely.
+for _, item in publications.iterrows():
+    pub_date = str(item.pub_date)
+    url_slug = str(item.url_slug)
+    title = "" if pd.isna(item.title) else str(item.title).strip()
+    venue = "" if pd.isna(item.venue) else str(item.venue).strip()
+    paper_url = "" if pd.isna(item.paper_url) else str(item.paper_url).strip()
+    excerpt = "" if pd.isna(item.excerpt) else str(item.excerpt).strip()
+    citation = "" if pd.isna(item.citation) else str(item.citation).strip()
 
-# In[4]:
+    md_filename = os.path.basename(f"{pub_date}-{url_slug}.md")
+    html_filename = f"{pub_date}-{url_slug}"
 
-html_escape_table = {
-    "&": "&amp;",
-    '"': "&quot;",
-    "'": "&apos;"
-    }
+    md = "---\n"
+    md += f'title: "{title.replace(chr(34), r"\"")}"\n'  # escape only double-quotes in title
+    md += "collection: publications\n"
+    md += "category: manuscripts\n"
+    md += f"permalink: /publication/{html_filename}\n"
+    md += f"date: {pub_date}\n"
+    md += f"venue: '{venue.replace(\"'\", \"''\")}'\n"  # YAML single-quote escaping
 
-def html_escape(text):
-    """Produce entities within text."""
-    return "".join(html_escape_table.get(c,c) for c in text)
+    # Ensure paperurl is present (this is what your layout will use to link the title to arXiv)
+    if len(paper_url) > 5:
+        md += f"paperurl: '{paper_url.replace(\"'\", \"''\")}'\n"
 
+    # Keep excerpt/citation as YAML block scalars so LaTeX stays readable and intact
+    if len(excerpt) > 5:
+        md += "excerpt: >-\n" + yaml_block(excerpt) + "\n"
 
-# ## Creating the markdown files
-# 
-# This is where the heavy lifting is done. This loops through all the rows in the TSV dataframe, then starts to concatentate a big string (```md```) that contains the markdown for each type. It does the YAML metadata first, then does the description for the individual page. If you don't want something to appear (like the "Recommended citation")
+    if len(citation) > 5:
+        md += "citation: >-\n" + yaml_block(citation) + "\n"
 
-# In[5]:
+    md += "---\n\n"
 
-import os
-for row, item in publications.iterrows():
-    
-    md_filename = str(item.pub_date) + "-" + item.url_slug + ".md"
-    html_filename = str(item.pub_date) + "-" + item.url_slug
-    year = item.pub_date[:4]
-    
-    ## YAML variables
-    
-    md = "---\ntitle: \""   + item.title + '"\n'
+    # ✅ FIX 1: NO "Download paper" link/button in the body (your layout/title will link to arXiv)
+    # (intentionally not adding any <a href='...'>Download paper here</a>)
 
-    # TODO Update to use the category assigned in the TSV file
-    md += """collection: manuscripts"""
-    
-    md += """\npermalink: /publication/""" + html_filename
-    
-    if len(str(item.excerpt)) > 5:
-        md += "\nexcerpt: '" + html_escape(item.excerpt) + "'"
-    
-    md += "\ndate: " + str(item.pub_date) 
-    
-    md += "\nvenue: '" + html_escape(item.venue) + "'"
-    
-    if len(str(item.paper_url)) > 5:
-        md += "\npaperurl: '" + item.paper_url + "'"
-    
-    md += "\ncitation: '" + html_escape(item.citation) + "'"
-    
-    md += "\n---"
-    
-    ## Markdown description for individual page
-    
-    if len(str(item.paper_url)) > 5:
-        md += "\n\n<a href='" + item.paper_url + "'>Download paper here</a>\n" 
-        
-    if len(str(item.excerpt)) > 5:
-        md += "\n" + html_escape(item.excerpt) + "\n"
-        
-    md += "\nRecommended citation: " + item.citation
-    
-    md_filename = os.path.basename(md_filename)
-       
-    with open("../_publications/" + md_filename, 'w') as f:
+    # Optional: include the excerpt in the page body too (helps if your theme doesn’t render math in YAML excerpt)
+    if len(excerpt) > 5:
+        md += "<p>\n" + excerpt + "\n</p>\n\n"
+
+    # Optional: keep the recommended citation line (no download link)
+    if len(citation) > 5:
+        md += "Recommended citation: " + citation + "\n"
+
+    with open(os.path.join("..", "_publications", md_filename), "w", encoding="utf-8") as f:
         f.write(md)
-
-
