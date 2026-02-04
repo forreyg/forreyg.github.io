@@ -4,7 +4,8 @@ collection: research
 type: "Research"
 permalink: /research/undergraduate
 venue: 'University of Connecticut'
-date: October 2023-May 2025
+startDate: 2023-10
+endDate: 2025-5
 location: "Storrs, CT, USA"
 ---
 
